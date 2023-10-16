@@ -22,9 +22,15 @@ public class Test {
 		nodeE.addEdge(nodeG, 6);
 		nodeF.addEdge(nodeG, 1);
 		ISearchAlgo algo1 = new BreadthFirstSearchGraphAlgo();
-		ISearchAlgo algo2 = new DepthFirstSearchGraphAlgo();
+		ISearchAlgo algo2 = new BreadthFirstSearchTreeAlgo();
+		ISearchAlgo algo3 = new DepthFirstSearchGraphAlgo();
+		ISearchAlgo algo4 = new DepthFirstSearchTreeAlgo();
 		System.out.println(algo1.execute(nodeS, nodeA.getLabel(), "G"));
 		System.out.println(NodeUtils.printPath(algo1.execute(nodeS, nodeA.getLabel(), "G")));
+		
+		UniformCostSearchAlgo algo5 = new UniformCostSearchAlgo();
+        Node result = algo5.execute(nodeS, "G", 3);
+        System.out.println("UCS: " + NodeUtils.printPath(result));
 	}
 
 }
